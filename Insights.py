@@ -68,6 +68,11 @@ print("Correlation Matrix:")
 print(CorrelationMatrix)
 dfi.export(CorrelationMatrix.round(4), "Images/CorrelationMatrix.png")
 
+ClaimProbCorrelations = CorrelationMatrix[['Claim Probability']].drop(index='Claim Probability')
+print("Correlations with Claim Probability:")
+print(ClaimProbCorrelations)
+dfi.export(ClaimProbCorrelations.round(4), "Images/ClaimProbCorrelations.png")
+
 for column in columns:
     Top5 = data.sort_values(by=column, ascending=False).head(5)
     Top5 = Top5[['County', column]]
